@@ -1,0 +1,4 @@
+v 3
+d Stata MCP (dev) — Stata-side packages (drone, Go server, ado commands)
+d https://github.com/mhjung0822/stata-mcp-dev
+p stata-mcp Stata MCP (dev) — drone, Go server, and ado command suite

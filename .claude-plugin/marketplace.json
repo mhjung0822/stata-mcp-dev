@@ -1,0 +1,17 @@
+{
+  "name": "stata-mcp-dev",
+  "owner": {
+    "name": "mhjung0822"
+  },
+  "metadata": {
+    "description": "Stata MCP — 개발용 마켓플레이스 (시험 빌드, 수시 갱신)"
+  },
+  "plugins": [
+    {
+      "name": "stata-mcp-dev",
+      "source": "./plugins/stata-mcp-dev",
+      "description": "[개발용] Stata MCP 시험 빌드 — 정식은 mhjung0822/stata-mcp",
+      "category": "data-science"
+    }
+  ]
+}
