@@ -67,6 +67,9 @@ program mcp_uninstall
             local ++nfiles
             local P`nfiles' `"`plus'jar/`x'"'
         }
+        * 설정 파일의 기본 자리 (서버 로그 폴더 ~/.stata_mcp/server-logs 는 남김 — Stata 는 빈 폴더만 지울 수 있다)
+        local ++nfiles
+        local P`nfiles' `"`home'/.stata_mcp/stata_mcp.properties"'
     }
 
     * ─── 미리보기 ────────────────────────────────────────────────────────

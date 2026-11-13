@@ -7,7 +7,7 @@ description: "/stata-data-fullcontext 전용 — 현재 데이터셋 전체를 �
 
 `/stata-data-fullcontext` 호출 시 아래 순서대로 즉시 실행:
 
-1. `StataMCP:getObsCount` 실행
+1. `StataMCP:getStataInfo` 실행 — `what=["obs"]`
 2. `StataMCP:getVariables` 실행
 3. `StataMCP:executeStata` — cmd: `codebook` 실행
 

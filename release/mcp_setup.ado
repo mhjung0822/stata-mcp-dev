@@ -56,23 +56,32 @@ program mcp_setup
     local jarpath `"`r(fn)'"'
     local jardir : subinstr local jarpath "stata-drone.jar" ""
 
-    * ─── updatecheck(off|on): 드론 jar 옆 stata_mcp.properties 의 UPDATE_CHECK 기록 ──
+    * ─── updatecheck(off|on): ~/.stata_mcp/stata_mcp.properties 의 UPDATE_CHECK 기록 ──
     * 드론(UpdateCheck)이 기동 시 같은 파일을 읽는다. 다른 줄은 보존 (mcp_watchdog 와 같은 방식).
+    * 새 파일이 아직 없으면 예전 자리(드론 jar 옆)의 내용을 바탕으로 쓴다 = 처음 쓸 때 옮겨짐.
     if `"`updatecheck'"' != "" {
         local v = lower(strtrim(`"`updatecheck'"'))
         if !inlist("`v'", "on", "off") {
             di as error "[Setup] updatecheck() 는 on 또는 off"
             exit 198
         }
-        local props `"`jardir'stata_mcp.properties"'
+        local old `"`c(pwd)'"'
+        quietly cd ~
+        local home `"`c(pwd)'"'
+        quietly cd `"`old'"'
+        capture mkdir `"`home'/.stata_mcp"'
+        local props `"`home'/.stata_mcp/stata_mcp.properties"'
+        local src `"`props'"'
+        capture confirm file `"`props'"'
+        if _rc local src `"`jardir'stata_mcp.properties"'
         tempname in out
         tempfile tmp
         local wrote = 0
         quietly {
             file open `out' using `"`tmp'"', write text replace
-            capture confirm file `"`props'"'
+            capture confirm file `"`src'"'
             if !_rc {
-                file open `in' using `"`props'"', read text
+                file open `in' using `"`src'"', read text
                 file read `in' line
                 while r(eof) == 0 {
                     if strpos(`"`macval(line)'"', "UPDATE_CHECK") == 1 {
