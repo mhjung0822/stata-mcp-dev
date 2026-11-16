@@ -1,8 +1,8 @@
 {
   "name": "stata-mcp-dev",
   "displayName": "Stata MCP (dev)",
-  "version": "0.14.0-dev.202611141740",
-  "description": "[개발용] Stata MCP 연결 + 슬래시 스킬 11종 — 동봉 프록시(stdio↔:8080)로 Stata 의 MCP 서버에 붙는다. Stata 에서 mcp_connect 로 서버를 먼저 켜세요.",
+  "version": "0.14.1-dev.202611170834",
+  "description": "[개발용] Stata MCP 연결 + 슬래시 스킬 11종 — 동봉 실행 파일이 MCP 서버를 띄우고 Stata 에 붙는다 (Stata 에서 mcp_connect).",
   "author": {
     "name": "mhjung0822"
   },

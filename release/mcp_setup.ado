@@ -1,4 +1,4 @@
-*! mcp_setup  v0.3.6  11nov2026
+*! mcp_setup  v0.3.7  17nov2026
 *!
 *! Stata-MCP 설정 진입점 (구 mcp_set 흡수) — help DB 를 GitHub 에서 받아
 *! 드론 jar 옆에 배치하고, 제어판 메뉴 등록 + 설정 링크(기동/제거)를
@@ -11,7 +11,7 @@
 *!   mcp_setup, updatecheck(off|on)  // 연결 시 새 버전 확인 + 연결 횟수 집계 끄기/켜기
 *!   mcp_setup, server     // (Go 서버 채널) 서버 실행 파일만 받아 ~/.stata_mcp/bin 에 둔다
 *!
-*! 채널: 아래 base(받는 주소) · channel(java|go) 두 줄은 패키징 때 채널에 맞게 바뀐다 (원본 = 정식 · java).
+*! 채널: 아래 base(받는 주소) 줄은 패키징 때 채널에 맞게 바뀐다 (원본 = 정식). channel 은 go — Java 서버 판은 v0.13.7 로 얼림(배포 저장소 java 브랜치).
 *!   go   = 서버가 Go 실행 파일. 패키지(pkg)에는 없고 여기서 받아 고정 자리에 둔다 (help DB 와 같은 방식).
 *!   java = 서버가 jar (패키지에 포함). 고정 자리에 남은 Go 실행 파일이 있으면 치운다.
 *!
